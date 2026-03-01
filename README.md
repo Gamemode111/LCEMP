@@ -1,47 +1,114 @@
-LCEMP is my minecraft legacy console source fork that enables LAN multiplayer hosting
+LCEMP is my Minecraft Legacy Console Edition source fork that enables LAN multiplayer hosting.
+
+notes:
+  - This is NOT the full source code.
+  - You need to provide the required asset files yourself.
+  - Code quality is not perfect. I am still learning C++.
+  - If you use this in other LCE-based projects, credit me.
+
 features:
-fully working mulitplayer (breaking,placing,kick system, up to 8 players modificable on source)
-keyboard and mouse support
-gamma fixed
-fullscreen support
+  - Fully working multiplayer
+  - Breaking and placing blocks synced
+  - Kick system
+  - Up to 8 players (modifiable in source)
+  - Keyboard and mouse support
+  - Gamma fixed
+  - Fullscreen support
 
-launch arguments
+launch_arguments:
+  - name: -name
+    usage: "-name <username>"
+    description: Sets your in-game username.
 
--name username (sets username)
--ip targetip (if the advertiser doesnt work or you cant reach it, you can supply an ip manually so you can join)
--port targetport (if you changed port you can change it with launch arg)
+  - name: -ip
+    usage: "-ip <targetip>"
+    description: >
+      Manually connect to an IP if LAN advertising does not work
+      or if the server cannot be discovered automatically.
 
-if you use on other LCE projects then please credit me, be aware that my code is not the best ever and might have a ton of issues (im learning c++)
-if you find any issue please PR and i will gladly merge it
+  - name: -port
+    usage: "-port <targetport>"
+    description: >
+      Override the default port if it was changed in the source.
 
-this is NOT the full source code, you need the asset files from another place
+example:
+  command: "Minecraft.Client.exe -name Steve -ip 192.168.0.25 -port 25565"
 
-you need:
+required_assets:
+  - path: Minecraft.Client/music/
+    content: Music files (.binka)
 
-Directory	Content
-Minecraft.Client/music/	Music files (.binka) — calm, creative, nether, menu, hal, etc.
-Minecraft.Client/Common/Media/	UI (.swf), Graphics (.png), Sound (.wav), Fonts, Localization, XUI scenes, .arc media archives
-Minecraft.Client/Common/res/	Game textures — terrain, gui, mob, item, font, art, particles, etc.
-Minecraft.Client/Common/DummyTexturePack/	Default texture pack resources
-Minecraft.Client/DurangoMedia/	Xbox One platform media (DLC, sounds, strings)
-Minecraft.Client/OrbisMedia/	PS4 platform media
-Minecraft.Client/PS3Media/	PS3 platform media
-Minecraft.Client/PSVitaMedia/	PS Vita platform media
-Minecraft.Client/Windows64Media/	Windows 64 platform media
-Minecraft.Client/redist64/	Miles Sound System redistributables (binkawin64.asi, mss64*.flt)
-Minecraft.Client/PS3_GAME/	PS3 game package (PARAM.SFO, ICON0.PNG, etc.)
-Minecraft.Client/PS4_GAME/	PS4 game package (eboot, modules, sounds)
-Minecraft.Client/sce_sys/	PS Vita system files (icons, trophies, param)
-Minecraft.Client/TROPDIR/	Trophy data
-**/4JLibs/	4J Studios proprietary libraries (all platforms)
-**/Miles/	Miles Sound System middleware (RAD Game Tools)
-**/Iggy/	Iggy/Scaleform UI middleware
-**/Sentient/	Sentient middleware
-Minecraft.Client/PS3/PS3Extras/boost_*/	Boost C++ libraries (1.53.0)
+  - path: Minecraft.Client/Common/Media/
+    content: UI (.swf), graphics (.png), sounds (.wav), fonts, localization, XUI scenes, .arc archives
 
-a easy way to install this is just replacing with another source folder
+  - path: Minecraft.Client/Common/res/
+    content: Game textures (terrain, gui, mobs, items, fonts, particles, etc.)
 
-made by notpies
-Minecraft.Client/PS3/PS3Extras/DirectX/	DirectX math headers
-Minecraft.Client/PS3/PS3Extras/HeapInspector/	Heap inspector static libs
-Minecraft.Client/Common/Network/Sony/	Sony remote storage libraries (.a)
+  - path: Minecraft.Client/Common/DummyTexturePack/
+    content: Default texture pack resources
+
+  - path: Minecraft.Client/DurangoMedia/
+    content: Xbox One platform media
+
+  - path: Minecraft.Client/OrbisMedia/
+    content: PS4 platform media
+
+  - path: Minecraft.Client/PS3Media/
+    content: PS3 platform media
+
+  - path: Minecraft.Client/PSVitaMedia/
+    content: PS Vita platform media
+
+  - path: Minecraft.Client/Windows64Media/
+    content: Windows 64 platform media
+
+  - path: Minecraft.Client/redist64/
+    content: Miles Sound System redistributables
+
+  - path: Minecraft.Client/PS3_GAME/
+    content: PS3 game package files
+
+  - path: Minecraft.Client/PS4_GAME/
+    content: PS4 game package files
+
+  - path: Minecraft.Client/sce_sys/
+    content: PS Vita system files
+
+  - path: Minecraft.Client/TROPDIR/
+    content: Trophy data
+
+  - path: "**/4JLibs/"
+    content: 4J Studios proprietary libraries
+
+  - path: "**/Miles/"
+    content: Miles Sound System middleware
+
+  - path: "**/Iggy/"
+    content: Iggy / Scaleform UI middleware
+
+  - path: "**/Sentient/"
+    content: Sentient middleware
+
+  - path: Minecraft.Client/PS3/PS3Extras/boost_*/
+    content: Boost C++ 1.53.0
+
+  - path: Minecraft.Client/PS3/PS3Extras/DirectX/
+    content: DirectX math headers
+
+  - path: Minecraft.Client/PS3/PS3Extras/HeapInspector/
+    content: Heap inspector static libraries
+
+  - path: Minecraft.Client/Common/Network/Sony/
+    content: Sony remote storage libraries
+
+install:
+  - Get required assets.
+  - Replace your Minecraft.Client source folder with this one.
+  - Build.
+  - Run with optional launch arguments if needed.
+
+contributing:
+  - If you find issues, open a PR.
+  - I will review and merge if valid.
+
+author: notpies
