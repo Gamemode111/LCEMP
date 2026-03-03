@@ -1,3 +1,5 @@
+// Code implemented by LCEMP, credit if used on other repos
+
 #include "stdafx.h"
 
 #ifdef _WINDOWS64
